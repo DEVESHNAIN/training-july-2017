@@ -6,5 +6,5 @@ function myfunction () {
   array3=array1.filter(item => array2.includes(item));
   array3=array3.sort();
   array3.forEach(item =>(str=str +" " + item));
-  document.getElementById("para").innerHTML="Element of common array are "+ str;
+  document.getElementById("para").innerHTML="Element of intersection array are "+ str;
 }

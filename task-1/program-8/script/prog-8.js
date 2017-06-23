@@ -1,6 +1,5 @@
 class sortArrayObObject{
-
-  sortObjects() {
+  sortObjects () {
     let john = { name: "John Smith", age: 23 };
     let  mary = { name: "Mary Key", age: 18 };
     let bob = { name: "Bob-small", age: 6 };
@@ -10,27 +9,23 @@ class sortArrayObObject{
     byName.sort(function(a,b){
       var x= a.name.toLowerCase();
       var y= b.name.toLowerCase();
-
-      if(x<y){
+      if (x<y) {
         return -1;
       }
-      else if(x>y){
+      else if (x>y) {
         return 1;
       }
-      else{
+      else {
         return 0;
       }
-
-    });
-    for(var i=0;i<byName.length;i++)
-    {
+   });
+  for (var i=0;i<byName.length;i++) {
       str=str+" ' "+byName[i].name+" ' ";
-    }
-    document.getElementById("para").innerHTML ="sorted name is ["+str+"]";
+  }
+  document.getElementById("para").innerHTML ="sorted name is ["+str+"]";
   }
 }
-
-function myfunction(){
+function myfunction () {
   const obj=new sortArrayObObject();
   obj.sortObjects();
 }

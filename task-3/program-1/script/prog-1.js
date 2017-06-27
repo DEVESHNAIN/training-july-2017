@@ -51,7 +51,8 @@ class abc {
         str=document.getElementById("text"+item).value;
         array.push(str);
       }
-    })
+    }
+  )
    alert("pushed/pop successful")
  }
  viewElement() {

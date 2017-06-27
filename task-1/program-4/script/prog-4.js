@@ -1,9 +1,9 @@
 class isSun {
-  constructor (num1,num2) {
+  constructor(num1,num2) {
     this.num1=num1;
     this.num2=num2;
   }
-  sun () {
+  sun() {
     let year1=this.num1;
     let year2=this.num2;
     let i;

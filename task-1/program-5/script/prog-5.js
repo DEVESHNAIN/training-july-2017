@@ -1,5 +1,5 @@
 class timeDetail {
-  dayOfToday () {
+  dayOfToday() {
     var d=new Date();
     var day=Number(d.getDay());
     var a;
@@ -21,7 +21,7 @@ class timeDetail {
   }
   document.getElementById("para1").innerHTML ="a) Today is " + a;
 }
-  currentTime () {
+  currentTime() {
     var d=new Date();
     let hh=d.getHours();
     let mm=d.getMinutes();
@@ -33,7 +33,7 @@ class timeDetail {
     }
   document.getElementById("para2").innerHTML ="b) current time is " +hh+ " : " + mm + " "+ampm;
 }
- currentDate () {
+ currentDate() {
     var d=new Date();
     let date=d.getDate();
     let month=d.getMonth()+1;
@@ -48,7 +48,7 @@ class timeDetail {
      date+'-'+month+'-'+year+"\n"+date+'/'+month+'/'+year+"\n";
  }
 };
-function myfunction () {
+function myfunction() {
   const obj=new timeDetail();
   obj.dayOfToday();
   obj.currentTime();

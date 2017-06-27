@@ -3,7 +3,7 @@ class operation {
     this.num1=num1;
     this.num2=num2;
   }
-  oper (operator) {
+  oper(operator) {
     let no1=this.num1;
     let no2=this.num2;
     let value=0;
@@ -25,10 +25,10 @@ class operation {
     window.alert("value of "+operator+" operation is "+value);
   }
 };
-function myfunction () {
- let num1=Number(document.getElementById("no1").value);
- let num2=Number(document.getElementById("no2").value);
- let operator=document.getElementById("op").value;
-    const obj1= new operation(num1,num2);
-    obj1.oper(operator);
+function myfunction() {
+  let num1=Number(document.getElementById("no1").value);
+  let num2=Number(document.getElementById("no2").value);
+  let operator=document.getElementById("op").value;
+  const obj1= new operation(num1,num2);
+  obj1.oper(operator);
 };

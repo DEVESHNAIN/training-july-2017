@@ -1,5 +1,5 @@
 class guess {
-  guessNo (num) {
+  guessNo(num) {
     var no=Number.parseInt(Math.random()*10);
     if(no==num){
       document.getElementById("para").innerHTML ="Good work";
@@ -9,7 +9,7 @@ class guess {
      }
   }
 }
-function myfunction () {
+function myfunction() {
   let num= Number(document.getElementById("no").value);
   const obj=new guess();
   obj.guessNo(num);

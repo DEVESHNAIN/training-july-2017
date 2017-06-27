@@ -1,5 +1,5 @@
 class sortArrayObObject{
-  sortObjects () {
+  sortObjects() {
     let john = { name: "John Smith", age: 23 };
     let  mary = { name: "Mary Key", age: 18 };
     let bob = { name: "Bob-small", age: 6 };
@@ -25,7 +25,7 @@ class sortArrayObObject{
   document.getElementById("para").innerHTML ="sorted name is ["+str+"]";
   }
 }
-function myfunction () {
+function myfunction() {
   const obj=new sortArrayObObject();
   obj.sortObjects();
 }

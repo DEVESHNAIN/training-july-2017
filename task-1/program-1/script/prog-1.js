@@ -1,8 +1,8 @@
 class checkNo {
-  constructor (num) {
+  constructor(num) {
     this.num=num;
   }
-  evenAndOdd () {
+  evenAndOdd() {
   let no=this.num;
   if ((no % 2) == 0) {
     document.getElementById("para").innerHTML ="the given number is even ";
@@ -12,9 +12,9 @@ class checkNo {
   }
  }
 };
-function myfunction () {
+function myfunction() {
   let num= Number(document.getElementById("no").value);
-    if(Number.isInteger(num)==true){
+    if (Number.isInteger(num)==true) {
       const obj= new checkNo(num);
       obj.evenAndOdd();
     }

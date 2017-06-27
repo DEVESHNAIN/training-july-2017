@@ -1,0 +1,22 @@
+<html>
+<head><title>Form Validation</title>
+ <script src="script/program-2.js"></script>
+ </head>
+ <body>
+   <h3>Enter details for validation</h3><br>
+   <script>
+     const obj = new validation();
+   </script>
+   <form name="frm">
+     Enter First Name :  &nbsp &nbsp &nbsp <input type="text" name="text1" id="text1" onkeypress="return obj.alphaOnly(event);" onblur="return obj.name1Length(event);"><br><br>
+     Enter Second Name : &nbsp <input type="text" name="text2" id="text2" onkeypress="return obj.alphaOnly(event);" onblur="return obj.name2Length(event);"><br><br>
+     Enter Phone Number : <input type="text" name="text3" id="text3" onkeypress="return obj.numOnly(event);" onblur="return obj.phoneLength(event);"><br><br>
+     Enter Date of Birth : &nbsp &nbsp<input type="text" name="text4" id="text4" placeholder="Enter DOB in DD-MM-YYYY" onkeypress="return obj.dobOnly(event);" onblur="obj.calculateAge();">
+     <h4 id="demo"></h4><br>
+     Enter Email Id : &nbsp &nbsp &nbsp &nbsp<input type="text" name="text5" id="text5" onblur="return obj.emailValidate(event);"><br><br>
+     Enter Password : &nbsp &nbsp &nbsp <input type="password" name="pwd" id="pwd" onblur="return obj.pwdValidate(event);"><br>
+     <h3>message :</h3><h4 id="para"></h4><br>
+     <input type="submit" name="sub" value="submit">
+   </form>
+ </body>
+</html>

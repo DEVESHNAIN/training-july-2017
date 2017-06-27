@@ -1,7 +1,9 @@
 function checkphone(evt) {
   var charCode = evt.charCode;
-  if (charCode == 45 || (charCode >= 48 && charCode <= 57))
+  if (charCode == 45 || (charCode >= 48 && charCode <= 57)) {
+    document.getElementById("label1").innerHTML="";
     return true;
+  }
   else {
     document.getElementById("label1").innerHTML="Number Only!";
     return false;
@@ -14,10 +16,12 @@ function formatphone() {
 }
 function checkip(evt) {
   var charCode = evt.charCode;
-  if (charCode == 46 || (charCode >= 48 && charCode <= 57))
+  if (charCode == 46 || (charCode >= 48 && charCode <= 57)) {
+    document.getElementById("label2").innerHTML="";
     return true;
+  }
   else {
-    document.getElementById("label1").innerHTML="Number Only!";
+    document.getElementById("label2").innerHTML="Number Only!";
     return false;
   }
 }

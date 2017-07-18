@@ -3,28 +3,31 @@ import { Template } from 'meteor/templating';
 import { ReactiveDict } from 'meteor/reactive-dict';
 import './task.js';
 import { Tasks } from '../api/tasks.js';
+import './subTaskList.js';
+
 // import 'taskList.html'
 import './body.html';
+import './subTaskList.html';
 
-Template.body.onCreated(function bodyOnCreated() {
+Template.uiList.onCreated(function bodyOnCreated() {
   this.state = new ReactiveDict();
-  Meteor.subscribe('tasks');  
+  Meteor.subscribe('tasks');
 });
-Template.body.helpers({
+
+Template.uiList.helpers({
   tasks() {
-    const instance = Template.instance();
-   if (instance.state.get('hideCompleted')) {
-     // If hide completed is checked, filter tasks
-     return Tasks.find({ checked: { $ne: true } }, { sort: { createdAt: -1 } });
-   }
+    console.log("inside tasks");
     return Tasks.find({}, { sort: { createdAt: -1 } });
   },
+});
 
+Template.headerTemplate.helpers({
   incompleteCount() {
     return Tasks.find({ checked: { $ne: true } }).count();
   },
 });
-Template.body.events({
+
+Template.headerTemplate.events({
   'submit .new-task'(event) {
     // Prevent default browser form submit
     event.preventDefault();

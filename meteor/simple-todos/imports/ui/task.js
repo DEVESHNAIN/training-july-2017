@@ -5,6 +5,9 @@ Template.task.helpers({
   isOwner() {
     return this.owner === Meteor.userId();
   },
+  taskId() {
+    return this._id;
+  },
 });
 
 Template.task.events({

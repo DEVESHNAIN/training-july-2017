@@ -1,5 +1,5 @@
 /* CSS declarations go here */
-/*body {
+body {
   font-family: sans-serif;
   background-color: #315481;
   background-image: linear-gradient(to bottom, #315481, #918e82 100%);
@@ -15,14 +15,14 @@
   margin: 0;
 
   font-size: 14px;
-}*/
+}
 
-/*.container {
+.container {
   max-width: 600px;
   margin: 0 auto;
   min-height: 100%;
   background: white;
-}*/
+}
 
 header {
   background: #d2edf4;
@@ -76,15 +76,28 @@ ul {
   font-size: 1em;
   border: none;
   position: relative;
+  cursor: pointer;
+  padding-top: 10px;
+  padding-right: 20px;
 }
 
 li {
   position: relative;
   list-style: none;
-  padding: 15px;
+
   border-bottom: #eee solid 1px;
 }
-
+.tasklink {
+  display: inline-block;
+  padding: 15px;
+  width: 80%;
+}
+.size{
+  padding: 15px;
+}
+.tasklink:hover{
+  background-color: #b6b7ba;
+}
 li .text {
   margin-left: 10px;
 }

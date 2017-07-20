@@ -12,7 +12,7 @@
 
          {{> loginButtons}}
           {{#if currentUser}}
-      <form class="atask">
+      <form class="atask new-task">
         <input type="text" name="text" placeholder="Type to add new sub tasks" />
       </form>
       {{/if}}
@@ -20,7 +20,7 @@
 </template>
 
 <template name="subTask">
-  <li >
+  <li class="size">
     <button class="delete">&times;</button>
 
     <span class="text">- {{text}}</span>

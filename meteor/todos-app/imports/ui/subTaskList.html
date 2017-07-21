@@ -1,0 +1,28 @@
+<template name="subTaskList" >
+  <ul>
+    {{#each subTasks}}
+    {{> subTask}}
+    {{/each}}
+  </ul>
+
+</template>
+<template name="subTaskHeader">
+  <header>
+      <h1>Todo List of subtasks ==>  {{ parentTask}}</h1>
+
+         {{> loginButtons}}
+          {{#if currentUser}}
+      <form class="atask new-task">
+        <input type="text" name="text" placeholder="Type to add new sub tasks" />
+      </form>
+      {{/if}}
+    </header>
+</template>
+
+<template name="subTask">
+  <li class="size">
+    <button class="delete">&times;</button>
+
+    <span class="text">- {{text}}</span>
+  </li>
+</template>

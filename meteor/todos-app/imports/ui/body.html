@@ -1,0 +1,29 @@
+<body>
+    {{> masterLayout}}
+</body>
+
+<template name="masterLayout">
+  {{> Template.dynamic template=top}}
+  {{> Template.dynamic template=main}}
+</template>
+
+<template name="headerTemplate">
+  <header>
+      <h1>Todo List ({{incompleteCount}})</h1>
+        {{> loginButtons}}
+        {{#if currentUser}}
+          <form class="new-task">
+            <input type="text" name="text" placeholder="Type to add new tasks" />
+          </form>
+        {{/if}}
+    </header>
+</template>
+
+
+<template name="uiList">
+  <ul>
+    {{#each tasks}}
+      {{> task}}
+    {{/each}}
+  </ul>
+</template>

@@ -37,9 +37,12 @@ Template.subTaskHeader.events({
     event.preventDefault();
     const target = event.target;
     const text = target.text.value;
-
     // Insert a task into the collection
-    Meteor.call('subTasks.insert' , text , FlowRouter.current().params.taskIds);
+    Meteor.call('subTasks.insert' , text , FlowRouter.current().params.taskIds, function(err,res) {
+      if(err) {
+        alert(err);
+      }
+    });
 
     // Clear form
     target.text.value = '';

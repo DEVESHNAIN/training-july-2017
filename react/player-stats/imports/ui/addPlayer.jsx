@@ -6,7 +6,7 @@ import Submit from './submit.jsx';
 import TextArea from './TextArea.jsx';
 import RadioGroup from './RadioGroup.jsx';
 
-import { Player } from '../api/player.js';
+import { Players } from '../api/player.js';
 
 export  default class AddPlayer extends Component {
   constructor (props) {
@@ -45,7 +45,7 @@ export  default class AddPlayer extends Component {
         }
       })
       /* this will insert form data into database*/
-      Player.insert({
+      Players.insert({
         firstName: first,
         lastName: last,
         gender,
@@ -54,6 +54,7 @@ export  default class AddPlayer extends Component {
         email,
         contactNo,
         about:area,
+        role,
         run,
         wickets,
         createdAt: new Date()

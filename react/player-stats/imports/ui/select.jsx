@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 
 render() {
   return (<select ref={(input) => { this.role = input; }}>
-    <option value="batsmen">Batsmen</option>
+    <option value="batsman">Batsman</option>
     <option value="bowler">Bowler</option>
     <option value="allrounder">All Rounder</option>
 

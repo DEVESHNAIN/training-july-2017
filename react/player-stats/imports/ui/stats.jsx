@@ -1,3 +1,4 @@
+import { Meteor } from 'meteor/meteor';
 import React, { Component } from 'react';
 import { createContainer }  from 'meteor/react-meteor-data';
 import { Players } from '../api/player.js';
@@ -12,13 +13,27 @@ class Stats extends Component {
   render= () => {
    return (
      <div className="container">
+
        <header>
          <h1>players detail</h1>
        </header>
-
-       <ul>
+       <table>
+         <tr>
+           <th>First Name</th>
+           <th>Last name</th>
+           <th>Gender</th>
+           <th>D. O.B </th>
+           <th>Home Town </th>
+           <th>Email id </th>
+           <th>Contact No </th>
+           <th>About player</th>
+           <th>Player Role</th>
+           <th>Run scored</th>
+           <th>Wickets taken</th>
+         </tr>
          {this.renderPlayers()}
-       </ul>
+
+     </table>
      </div>
    );
  }
@@ -26,6 +41,7 @@ class Stats extends Component {
 
 
 export default createContainer(() => {
+  Meteor.subscribe('players');
  return {
    players: Players.find({}).fetch(),
  };

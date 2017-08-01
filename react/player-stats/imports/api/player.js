@@ -9,3 +9,44 @@ if (Meteor.isServer) {
     return Players.find();
   });
 }
+Meteor.methods({
+  /* this will insert form data into database*/
+  'player.insert'(first,last,gender,dob,birthPlace,email,contactNo,area,role,run,wickets) {
+    Players.insert({
+      firstName: first,
+      lastName: last,
+      gender,
+      dob,
+      birthPlace,
+      email,
+      contactNo,
+      about:area,
+      role,
+      run,
+      wickets,
+      createdAt: new Date()
+    });
+  },
+  'player.update'(id,first,last,gender,dob,birthPlace,email,contactNo,area,role,run,wickets) {
+    Players.update({_id: id}, {
+      $set: {
+        firstName: first,
+        lastName: last,
+        gender,
+        dob,
+        birthPlace,
+        email,
+        contactNo,
+        about:area,
+        role,
+        run,
+        wickets,
+        createdAt: new Date()
+      }
+    })
+  },
+  'player.fetchById'(_id) {
+  const arr = Players.find({_id}).fetch();
+  return arr;
+  }
+})

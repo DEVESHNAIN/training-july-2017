@@ -5,12 +5,32 @@ import { Players } from '../api/player.js';
 import Player  from './player.jsx';
 
 class Stats extends Component {
-  renderPlayers = () => {
+  renderPlayers = (fields) => {
     return this.props.players.map((player) => (
-      <Player key={player._id} player={player} />
+      <Player key={player._id} player={player} fields={fields}/>
     ));
   }
-  render= () => {
+  renderTitle = (fields) => {
+    return fields.map((item, key) => {
+      return <th key={key}>{[item.value]}</th>
+    })
+  }
+
+  render = () => {
+    const fields = [{key: 'firstName', value: "First Name"},
+     {key: 'lastName', value: "Last Name"},
+     {key: 'gender', value: "Gender"},
+     {key: 'dob', value: "Date of Birth"},
+     {key: 'birthPlace', value: "Place of birth"},
+     {key: 'email', value: "Email Address"},
+     {key: 'contactNo', value: "Contact No"},
+     {key: 'about', value: "About"},
+     {key: 'role', value: "Player role"},
+     {key: 'run', value: "Runs scored"},
+     {key: 'wickets', value: "Wickets taken"}
+   ];
+
+
    return (
      <div className="container">
 
@@ -18,27 +38,17 @@ class Stats extends Component {
          <h1>players detail</h1>
        </header>
        <table>
+         <tbody>
          <tr>
-           <th>First Name</th>
-           <th>Last name</th>
-           <th>Gender</th>
-           <th>D. O.B </th>
-           <th>Home Town </th>
-           <th>Email id </th>
-           <th>Contact No </th>
-           <th>About player</th>
-           <th>Player Role</th>
-           <th>Run scored</th>
-           <th>Wickets taken</th>
+           {this.renderTitle(fields)}
          </tr>
-         {this.renderPlayers()}
-
-     </table>
+         {this.renderPlayers(fields)}
+       </tbody>
+       </table>
      </div>
    );
  }
  }
-
 
 export default createContainer(() => {
   Meteor.subscribe('players');

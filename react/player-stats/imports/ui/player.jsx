@@ -1,21 +1,23 @@
 import React, { Component} from 'react';
-
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 // Task component - represents a single todo item
 export default class Player extends Component {
-  render() {
-    return (<tr>
-      <td><strong>{this.props.player.firstName}</strong></td>
-      <td><strong>{this.props.player.lastName}</strong></td>
-      <td>{this.props.player.gender}</td>
-      <td>{this.props.player.dob}</td>
-      <td>{this.props.player.birthPlace}</td>
-      <td>{this.props.player.email}</td>
-      <td>{this.props.player.contactNo}</td>
-      <td>{this.props.player.about}</td>
-      <td>{this.props.player.role}</td>
-      <td>{this.props.player.run}</td>
-      <td>{this.props.player.wickets}</td><br></br>
-    </tr>
-    );
+renderOne=() => {
+  let fields=this.props.fields;
+  return fields.map((item, key) => {
+    if((item.key) == "dob") {
+      let dob =moment(this.props.player[item.key], "YYYY/MM/DD").format("DD-MMM-YYYY");
+      return <td key={key}>{dob}</td>
+    }
+    else if((item.key) == 'firstName'){
+      return <td key={key}><Link to={`/edit/${this.props.player._id}`}>{this.props.player[item.key]}</Link></td>
+    }
+    return <td key={key}>{this.props.player[item.key]}</td>
+  })
+ }
+
+  render = () => {
+    return <tr>{this.renderOne()}</tr>
   }
+
 }

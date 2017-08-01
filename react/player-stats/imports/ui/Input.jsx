@@ -30,7 +30,7 @@ import React, { Component } from 'react';
                          this.setState({valid:false, message:"Invalid"});
                          e.target.focus();
                          return false;
-                  
+
    case "no":  if (/^[0-9]*$/.test(e.target.value)) {
                  this.setState({valid:true, message:"valid"});
                  return true;

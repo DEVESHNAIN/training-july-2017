@@ -31,37 +31,13 @@ export  default class AddPlayer extends Component {
       let gender='';
       let arr=[this.radiobutton.rb1,this.radiobutton.rb2,this.radiobutton.rb3];
 
-      console.log('first name is '+first);
-      console.log('last name is '+last);
-      console.log("email address is "+email);
-      console.log("contact no is "+ contactNo);
-      console.log("about you :"+ area);
-      console.log("you are a " +role);
-      console.log(birthPlace);
-      console.log(run);
-      console.log(wickets);
-      console.log(dob);
       arr.forEach((item) => {
         if (item.checked) {
           gender=item.value;
-          console.log("your's gender is "+ item.value );
         }
       })
-      /* this will insert form data into database*/
-      Players.insert({
-        firstName: first,
-        lastName: last,
-        gender,
-        dob,
-        birthPlace,
-        email,
-        contactNo,
-        about:area,
-        role,
-        run,
-        wickets,
-        createdAt: new Date()
-      });
+
+      Meteor.call('player.insert',first,last,gender,dob,birthPlace,email,contactNo,area,role,run,wickets);
 
       this.firstName.input.value='';
       this.lastName.input.value='';

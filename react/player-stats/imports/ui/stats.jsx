@@ -27,7 +27,8 @@ class Stats extends Component {
      {key: 'about', value: "About"},
      {key: 'role', value: "Player role"},
      {key: 'run', value: "Runs scored"},
-     {key: 'wickets', value: "Wickets taken"}
+     {key: 'wickets', value: "Wickets taken"},
+     {key:'edit', value:'Edit button'}
    ];
 
 

@@ -46,7 +46,7 @@ Meteor.methods({
     })
   },
   'player.fetchById'(_id) {
-  const arr = Players.find({_id}).fetch();
-  return arr;
+  return Players.findOne({_id});
+
   }
 })

@@ -6,8 +6,9 @@ import React, { Component } from 'react';
      this.state = {valid: false, message:""}
    }
    handleValidate = (e) => {
-   switch (e.target.name) {
-     case "name":  if( /^[a-zA-Z ]+$/.test(e.target.value)){
+     
+     switch (e.target.name) {
+       case "name":  if( /^[a-zA-Z ]+$/.test(e.target.value)){
                    this.setState({valid:true, message:"Valid"});
                    return true;
                  }
@@ -15,7 +16,7 @@ import React, { Component } from 'react';
                    e.target.focus();
                    return false;
 
-   case "email":  if( /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(e.target.value)) {
+       case "email":  if( /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(e.target.value)) {
                    this.setState({valid:true,message:"valid"});
                    return true;
                  }
@@ -23,7 +24,7 @@ import React, { Component } from 'react';
                    e.target.focus();
                    return false;
 
-   case "contactNo":   if(/^\d{10}$/.test(e.target.value)) {
+        case "contactNo":   if(/^\d{10}$/.test(e.target.value)) {
                          this.setState({valid:true, message:"valid"});
                          return true;
                        }
@@ -43,7 +44,7 @@ import React, { Component } from 'react';
    }
    }
    render() {
-     return (<span><input type={this.props.type} name={this.props.name} onChange={this.handleValidate} placeholder={this.props.placeholder} ref={(input) => { this.input = input; }} />
+     return (<span><input type={this.props.type} defaultValue={this.props.value} name={this.props.name} onChange={this.handleValidate} placeholder={this.props.placeholder} ref={(input) => { this.input = input; }} />
      <br></br> &nbsp; &nbsp;&nbsp; {this.state.message}</span>);
 }
 }

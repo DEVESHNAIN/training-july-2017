@@ -11,19 +11,9 @@ import { Players } from '../api/player.js';
 export  default class Edit extends Component {
   constructor (props) {
     super(props);
-  //   let _id=this.props.match.params._id;
-  // //  let data = Players.find({_id}).fetch();
-  // const data = Meteor.call('player.fetchById',_id, function(err,data){
-  //   if(err) console.log(error);
-  //   else{
-  //     console.log(data);
-  //     return data;
-  //   }
-  // });
-  // console.log(data);
     this.state = {
       data:'',
-      loading:false,
+      loading:true,
       firstName : '',
       lastName: '',
       email:'',
@@ -66,44 +56,43 @@ export  default class Edit extends Component {
       });
     }
 
-
   form = () => {
-      let _id=this.props.match.params._id;
-      let data = Players.find({_id}).fetch();
+    let _id=this.props.match.params._id;
+    let data = Players.find({_id}).fetch();
     const element = <form onSubmit={this.handleSubmit}>
       <Label text="First Name : " />
-      <Input  name="name"  placeholder="enter your first name" ref={(input) => { this.firstName = input; }}/>
+      <Input  name="name" value={this.state.firstName}  placeholder="enter your first name" ref={(input) => { this.firstName = input; }}/>
       <br/><br/>
       <Label text="Last Name : " />
-      <Input  name="name" placeholder="enter your last name"  ref={(input) => { this.lastName = input; }}/>
+      <Input  name="name" value={this.state.lastName} placeholder="enter your last name"  ref={(input) => { this.lastName = input; }}/>
       <br/><br/>
       <RadioGroup ref={(input) => { this.radiobutton = input; }} />
       <br/><br/>
       <Label text="D.O.B : " /> &nbsp; &nbsp;  &nbsp; &nbsp;&nbsp;
-      <Input type="date" name="dob" ref={(input) => { this.dob = input; }}/> <br/><br/>
+      <Input type="date" name="dob" value={this.state.dob} ref={(input) => { this.dob = input; }}/> <br/><br/>
       <Label text="profile pic : " />&nbsp;
       <Input type="file" ref={(input) => { this.file = input; }}/>
       <br/><br/>
       <Label text="Birth Place : " />
-      <Input  name="birthPlace" placeholder="enter your bith place" ref={(input) => { this.birthPlace = input; }}/>
+      <Input  name="birthPlace" value={this.state.birthPlace} placeholder="enter your bith place" ref={(input) => { this.birthPlace = input; }}/>
       <br/><br/>
       <Label text="email : " /> &nbsp; &nbsp;  &nbsp; &nbsp;&nbsp;&nbsp;
-      <Input  name="email" placeholder="enter your email address"  ref={(input) => { this.email = input; }} />
+      <Input  name="email" value={this.state.email} placeholder="enter your email address"  ref={(input) => { this.email = input; }} />
       <br/><br/>
       <Label text="contact no : " />&nbsp;
-      <Input  name="contactNo"  placeholder="enter your contact no"  ref={(input) => { this.contactNo = input; }}/>
+      <Input  name="contactNo"  value={this.state.contactNo} placeholder="enter your contact no"  ref={(input) => { this.contactNo = input; }}/>
       <br/><br/>
       <Label text="A short note : " />  &nbsp;&nbsp;&nbsp;
-      <TextArea  ref={(input) => { this.area = input; }} />
+      <TextArea  value={this.state.about} ref={(input) => { this.area = input; }} />
       <br/><br/>
       <Label text="Your' s Role : " /> &nbsp; &nbsp;
-      <SelectBox ref={(input) => { this.role = input; }}/>
+      <SelectBox value={this.state.role} ref={(input) => { this.role = input; }}/>
       <br/><br/>
       <Label text="Runs : " /> &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-      <Input  name="no"  placeholder="enter total run scored"  ref={(input) => { this.run = input; }}/>
+      <Input  name="no"  placeholder="enter total run scored"  value={this.state.run} ref={(input) => { this.run = input; }}/>
       <br/><br/>
       <Label text="Wickets : " /> &nbsp; &nbsp; &nbsp;
-      <Input  name="no" placeholder="enter wickets taken"  ref={(input) => { this.wickets = input; }}/>
+      <Input  name="no" placeholder="enter wickets taken" value={this.state.wickets} ref={(input) => { this.wickets = input; }}/>
       <br/><br/> <br/><br/>&nbsp; &nbsp; &nbsp;
       <Submit buttonText="click to submit" />
       <br/><br/>
@@ -119,41 +108,26 @@ export  default class Edit extends Component {
       else{
         console.log("inside callback");
         console.log(data);
-        this.setState({data:data,loading:true})
+        this.setState({  firstName : data.firstName,
+          lastName: data.lastName,
+          email:data.email,
+          dob:data.dob,
+          birthPlace:data.birthPlace,
+          contactNo:data.contactNo,
+          about:data.about,
+          role:data.role,
+          run:data.run,
+          wickets:data.wickets,
+          gender:data.gender,
+          loading:false
+        })
       }
   });
-  if(this.state.loading) {
-  const data= this.state.data;
-  console.log("inside if");
-  console.log(data);
 }
-    this.setState ({
-      firstName : data[0].firstName,
-      lastName: data[0].lastName,
-      email:data[0].email,
-      dob:data[0].dob,
-      birthPlace:data[0].birthPlace,
-      contactNo:data[0].contactNo,
-      about:data[0].about,
-      role:data[0].role,
-      run:data[0].run,
-      wickets:data[0].wickets,
-      gender:data[0].gender
-    });
-  }
-  componentDidMount=() =>{
-    this.firstName.input.value=this.state.firstName;
-    this.lastName.input.value=this.state.lastName;
-    this.dob.input.value=this.state.dob;
-    this.birthPlace.input.value=this.state.birthPlace;
-    this.email.input.value=this.state.email;
-    this.contactNo.input.value=this.state.contactNo;
-    this.area.area.value=this.state.about;
-    this.role.role.value=this.state.role;
-    this.run.input.value=this.state.run;
-    this.wickets.input.value=this.state.wickets;
-  }
   render= () => {
+    if(this.state.loading){
+      return <div>loading</div>
+    }
     return (<div>{this.form()}</div>);
   }
 }

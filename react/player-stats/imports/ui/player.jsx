@@ -9,9 +9,10 @@ renderOne=() => {
       let dob =moment(this.props.player[item.key], "YYYY/MM/DD").format("DD-MMM-YYYY");
       return <td key={key}>{dob}</td>
     }
-    else if((item.key) == 'firstName'){
-      return <td key={key}><Link to={`/edit/${this.props.player._id}`}>{this.props.player[item.key]}</Link></td>
+    else if((item.key) == 'edit'){
+      return <td key={key}><Link to={`/edit/${this.props.player._id}`}><input type="button" value="Click to edit"/></Link></td>
     }
+
     return <td key={key}>{this.props.player[item.key]}</td>
   })
  }
